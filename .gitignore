@@ -1,0 +1,6 @@
+coverage
+doc/api
+.bundle
+pkg
+*~
+*.swp

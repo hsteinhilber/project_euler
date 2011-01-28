@@ -1,0 +1,33 @@
+= project_euler
+
+A ruby implementation of the Project Euler problems.
+
+== Copyright
+
+Copyright (c) 2011 Harry Steinhilber, Jr.. See LICENSE.txt for
+further details.
+
+== What is this?
+From the Project Euler[http://projecteuler.net] home page:
+
+Project Euler is a series of challenging mathematical/computer programming problems
+that will require more than just mathematical insights to solve. Although mathematics
+will help you arrive at elegant and efficient methods, the use of a computer and
+programming skills will be required to solve most problems.
+
+The motivation for starting Project Euler, and its continuation, is to provide a
+platform for the inquiring mind to delve into unfamiliar areas and learn new concepts
+in a fun and recreational context.
+
+== So what is *this* then?
+This project is just my humble attempt at solving the Project Euler problems using
+the Ruby programming language. This is an attempt for me to use Ruby in a realistic
+way to solve real problems. Along the way, I hope to learn more about Ruby and RSpec
+for writing executable specifications of the project problems. 
+
+== Can I use this?
+Well, your are more than welcome to use any of the code in this project per the terms
+of the MIT license, but remember that the point of Project Euler is learning, and we 
+don't learn through copy and paste! Also, I can't guarantee that any of my solutions 
+will be very efficient. I do intend to ensure that I at least get the correct answers 
+by verifying them on the Project Euler site, though.
