@@ -7,7 +7,7 @@ describe ProjectEuler do
     def metaclass; class << self; self; end; end
   end
 
-  class Problem001
+  class ExampleProblem
     @@run_complete = false
 
     def run
@@ -25,7 +25,7 @@ describe ProjectEuler do
 
   before(:each) do
     @problems = {
-      'Problem001' => 'first problem description',
+      'ExampleProblem' => 'first problem description',
       'Problem002' => 'second problem description',
       'Problem003' => 'third problem description',
       'Problem004' => 'fourth problem description',
@@ -37,7 +37,7 @@ describe ProjectEuler do
       'Problem010' => 'tenth problem description',
       'Problem011' => 'eleventh problem description'
     }
-    Problem001.run_complete = false
+    ExampleProblem.run_complete = false
   end
     
   it "takes the list of completed problems" do
@@ -149,7 +149,7 @@ describe ProjectEuler do
 
       pe.get_command
       
-      Problem001.run_complete.should == true
+      ExampleProblem.run_complete.should == true
     end
 
     it "displays the output of the specified problem" do

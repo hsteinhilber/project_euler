@@ -16,6 +16,7 @@ class ProjectEuler
     end
     puts "n. Next Page" if not is_last_page?
     puts "p. Previous Page" if not is_first_page?
+    puts "\n"
   end
 
   def get_command
@@ -25,11 +26,11 @@ class ProjectEuler
     if command =~ /\d/
       problem = @problems.keys[index(command.to_i - 1)]
       if not problem.nil?
-        puts "Result: " + eval("#{problem}.new.run").inspect
+        puts 'Result: ' + eval("#{problem}.new.run").inspect + "\n\n"
         return
       end
     end
-    puts "'#{command}' is an invalid command or option. Please try again."
+    puts "'#{command}' is an invalid command or option. Please try again.\n\n"
   end
 
   private
@@ -48,6 +49,8 @@ class ProjectEuler
 end
 
 if $0 == __FILE__
+  `cls`
+  
   $: << './lib'
   problems = {}
   File.open('problems','r') do |file|
