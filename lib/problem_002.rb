@@ -16,7 +16,8 @@ class Problem002
   end
 
   def run
-    sum_to 4_000_000
+    self.maximum = 4_000_000
+    sum
   end
 end
 

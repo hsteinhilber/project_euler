@@ -50,7 +50,8 @@ describe Problem001 do
   end
 
   it "sums the values less than 1000" do
-    @prb.should_receive(:sum_to).with(1000)
+    @prb.should_receive(:maximum=).with(1000)
+    @prb.should_receive(:sum)
     @prb.run
   end
 end

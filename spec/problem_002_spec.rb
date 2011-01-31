@@ -48,7 +48,8 @@ describe Problem002 do
   end
 
   it "sums the values less than 4,000,000 when run" do
-    @prb.should_receive(:sum_to).with(4_000_000)
+    @prb.should_receive(:maximum=).with(4_000_000)
+    @prb.should_receive(:sum)
     @prb.run
   end
 end

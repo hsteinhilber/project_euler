@@ -19,7 +19,8 @@ class Problem001
   end
 
   def run
-    sum_to(1000)
+    self.maximum = 1000
+    sum
   end
 end
 
