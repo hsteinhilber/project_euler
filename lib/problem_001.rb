@@ -1,18 +1,28 @@
-
 class Problem001
-  def run
-    sum_values(1000)
-  end
+  attr_accessor :maximum
+  include Enumerable
 
-  def values(max) 
-    (1...max).each do |n|
-      yield n if n % 3 == 0 || n % 5 == 0
+  ADD_VALUES = [2,1,3,1,2,3,3]
+
+  def each
+    n = 3
+    i = 0
+    while (n < maximum) do
+      yield n
+      n += ADD_VALUES[i]
+      i = (i + 1) % ADD_VALUES.length
     end
   end
 
-  def sum_values(max)
-    sum = 0
-    values(max) { |n| sum += n }
-    sum
+  def sum
+    inject(0) { |sum,n| sum + n }
   end
+
+  def run
+    sum_to(1000)
+  end
+end
+
+if $0 == __FILE__
+  puts "Result: #{Problem001.new.run}"
 end
