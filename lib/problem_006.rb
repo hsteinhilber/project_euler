@@ -1,11 +1,15 @@
 class Problem006
 
   def sum_of_squares(range)
-    range.inject(0) { |sum,n| sum + n ** 2 }
+    smaller = range.first - 1
+    larger = range.last
+    ((2*larger+1)*(larger+1)*larger/6) - ((2*smaller+1)*(smaller+1)*smaller/6)
   end
 
   def square_of_sum(range)
-    range.inject(0) { |sum,n| sum + n } ** 2
+    smaller = range.first - 1
+    larger = range.last
+    ((larger*(larger+1)/2) - (smaller*(smaller+1)/2)) ** 2
   end
 
   def run
