@@ -16,17 +16,20 @@ class ProjectEuler
     end
     puts "n. Next Page" if not is_last_page?
     puts "p. Previous Page" if not is_first_page?
-    puts "\n"
+    puts "q. Quit\n\n"
   end
 
   def get_command
     command = gets.chomp
+    if command == 'q' then exit(0); end
     if command == 'n' and not is_last_page? then @page += 1; return; end
     if command == 'p' and not is_first_page? then @page -= 1; return; end
     if command =~ /\d/
       problem = @problems.keys[index(command.to_i - 1)]
       if not problem.nil?
-        puts 'Result: ' + eval("#{problem}.new.run").inspect + "\n\n"
+        start_time = Time.now
+        puts 'Result: ' + eval("#{problem}.new.run").inspect
+        puts "Run time: #{Time.now-start_time}s\n\n"
         return
       end
     end

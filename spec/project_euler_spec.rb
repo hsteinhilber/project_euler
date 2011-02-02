@@ -45,6 +45,20 @@ describe ProjectEuler do
     pe.problems.length.should == 11
   end
 
+  it "quits when the user enters 'q'" do
+    quit_called = false
+    output = StringIO.new("","w")
+    input = StringIO.new("q\n","r")
+    pe = ProjectEuler.new(@problems)
+    pe.metaclass.send(:define_method, :puts) { |value| output.puts value }
+    pe.metaclass.send(:define_method, :gets) { input.gets }
+    pe.metaclass.send(:define_method, :exit) { |value| quit_called = true }
+
+    pe.get_command
+    
+    quit_called.should == true
+  end
+
   describe "displaying a problem list" do
 
     it "displays a page of problems at a time" do
@@ -57,6 +71,16 @@ describe ProjectEuler do
       output.string.should =~ /first problem description/i
       output.string.should =~ /ninth problem description/i
       output.string.should_not =~ /tenth problem description/i
+    end
+
+    it "has an item to quit" do
+      output = StringIO.new("","w")
+      pe = ProjectEuler.new(@problems)
+      pe.metaclass.send(:define_method, :puts) { |value| output.puts value }
+
+      pe.show_menu
+
+      output.string.should =~ /quit/i
     end
 
     it "has an item to move to the next page" do
