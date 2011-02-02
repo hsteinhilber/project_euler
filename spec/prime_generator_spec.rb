@@ -29,9 +29,9 @@ describe PrimeGenerator do
       @primes.should respond_to(:skip)
     end
 
-    it "takes less than 10s to compute the primes below 2,000,000" do
+    it "takes less than 10s to compute the primes below 1,000,000" do
       start_time = Time.now
-      @primes.take_while { |v| v < 2_000_000 }
+      @primes.take_while { |v| v < 1_000_000 }
       (Time.now-start_time).should <= 10.0
     end
   end
