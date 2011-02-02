@@ -13,8 +13,8 @@ describe PrimeGenerator do
       @primes.first.should == 2
     end
 
-    it "returns 2, 3, 5, 7, 11, 13, 17, 19 in succession" do
-      @primes.take(8).should == [2, 3, 5, 7, 11, 13, 17, 19]
+    it "returns 2, 3, 5, 7, 11, 13, 17, 19, 23, 29 in succession" do
+      @primes.take(10).should == [2, 3, 5, 7, 11, 13, 17, 19, 23, 29]
     end
 
     it "returns 541 as the 100th prime number" do
@@ -27,6 +27,12 @@ describe PrimeGenerator do
 
     it "responds to :skip" do
       @primes.should respond_to(:skip)
+    end
+
+    it "takes less than 10s to compute the primes below 2,000,000" do
+      start_time = Time.now
+      @primes.take_while { |v| v < 2_000_000 }
+      (Time.now-start_time).should <= 10.0
     end
   end
 end
