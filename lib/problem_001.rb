@@ -1,5 +1,4 @@
 class Problem001
-  attr_accessor :maximum
   include Enumerable
 
   ADD_VALUES = [2,1,3,1,2,3,3]
@@ -7,20 +6,19 @@ class Problem001
   def each
     n = 3
     i = 0
-    while (n < maximum) do
+    while true
       yield n
       n += ADD_VALUES[i]
       i = (i + 1) % ADD_VALUES.length
     end
   end
 
-  def sum
-    inject(0) { |sum,n| sum + n }
+  def sum_to(maximum)
+    take_while { |n| n < maximum }.inject { |sum,n| sum + n }
   end
 
   def run
-    self.maximum = 1000
-    sum
+    sum_to 1000
   end
 end
 
