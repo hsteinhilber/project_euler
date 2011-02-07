@@ -75,4 +75,35 @@ describe Integer do
       13_195.prime_factors.should == { 5 => 1, 7 => 1, 13 => 1, 29 => 1 }
     end
   end
+
+  describe "proper divisors" do
+
+    it "returns [] for 1" do
+      1.divisors.should == []
+    end
+
+    it "returns [1] for 2" do
+      2.divisors.should == [1]
+    end
+
+    it "returns [1,2] for 4" do
+      4.divisors.should == [1,2]
+    end
+
+    it "returns [1,2,3] for 6" do
+      6.divisors.should == [1,2,3]
+    end
+
+    it "returns [1,3] for 9" do
+      9.divisors.should == [1,3]
+    end
+
+    it "returns [1,2,4,5,10,11,20,22,44,55,110] for 220" do
+      220.divisors.should == [1,2,4,5,10,11,20,22,44,55,110]
+    end
+
+    it "returns [1,2,4,71,142] for 284" do
+      284.divisors.should == [1,2,4,71,142]
+    end
+  end
 end
