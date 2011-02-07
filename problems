@@ -15,3 +15,4 @@ Problem014 Find the longest sequence using a starting number under one million.
 Problem015 Starting in the top left corner in a 20 by 20 grid, how many routes are there to the bottom right corner?
 Problem016 What is the sum of the digits of the number 2^1000?
 Problem017 How many letters would be needed to write all the numbers in words from 1 to 1000?
+Problem018 Find the maximum sum travelling from the top of the triangle to the base.
