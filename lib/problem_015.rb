@@ -1,20 +1,6 @@
+require 'integer'
+
 class Problem015
-
-  class ::Integer
-
-    def fact
-      return 1 if self <= 1
-      self * (self - 1).fact
-    end
-
-    def perm(k)
-      self.fact / (self - k).fact
-    end
-
-    def comb(k)
-      self.perm(k) / k.fact
-    end
-  end
 
   def run
     40.comb(20)

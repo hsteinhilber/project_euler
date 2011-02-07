@@ -7,15 +7,7 @@ describe Problem016 do
     @prb = Problem016.new
   end
 
-  it "calculates the digits of 0 as just 0" do
-    0.digits.should == [0]
-  end
-
-  it "calculates the digits of 1024 as 1, 0, 2, and 4" do
-    1024.digits.should == [1,0,2,4]
-  end
-
-  context "running the problem" do
+ context "running the problem" do
 
     before(:each) do
       class Integer
