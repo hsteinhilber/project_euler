@@ -7,25 +7,6 @@ describe Problem005 do
     @prb = Problem005.new
   end
 
-  describe "prime factors" do
-  
-    it "generates { 2 => 1, 3 => 1 } for 6" do
-      @prb.prime_factors(6).should == { 2 => 1, 3 => 1 }
-    end
-
-    it "generates { 2 => 2 } for 4" do
-      @prb.prime_factors(4).should == { 2 => 2 }
-    end
-
-    it "generates { 5 => 2, 11 => 1 }  for 275" do
-      @prb.prime_factors(275).should == { 5 => 2, 11 => 1 }
-    end
-
-    it "generates { 5 => 1, 7 => 1, 13 => 1, 29 => 1 } for 13195" do
-      @prb.prime_factors(13195).should == { 5 => 1, 7 => 1, 13 => 1, 29 => 1 }
-    end
-  end
-
   describe "least common multiple" do
     
     it "calculates 2 for 1..2" do

@@ -1,26 +1,11 @@
-class Problem005
+require 'integer'
 
-  def prime_factors(value) 
-    prime = 2
-    result = {}
-    while value >= prime ** 2
-      if value % prime == 0
-        result.merge!(prime => 0) if not result.has_key?(prime)
-        result[prime] += 1
-        value /= prime
-      else
-        prime += 1
-      end
-    end
-    result.merge!(value => 0) if not result.has_key?(value)
-    result[value] += 1
-    return result
-  end
+class Problem005
 
   def lcm(range)
     factors = {}
     range.each do |n|
-      factors.merge!(prime_factors(n)) do |key,x,y|
+      factors.merge!(n.prime_factors) do |key,x,y|
         x > y ? x : y
       end
     end

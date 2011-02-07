@@ -1,21 +1,9 @@
+require 'integer' 
+
 class Problem003
 
-  def prime_factors(value)
-    prime = 2
-    result = []
-    while value >= prime ** 2
-      if value % prime == 0
-        result << prime
-        value /= prime
-      else
-        prime += 1
-      end
-    end
-    result << value
-  end
-
   def run
-    prime_factors(600_851_475_143).max
+    600_851_475_143.prime_factors.keys.max
   end
 end
 
