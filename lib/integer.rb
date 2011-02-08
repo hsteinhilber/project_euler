@@ -36,7 +36,7 @@ class ::Integer
   end
 
   def divisors
-    return [] if self == 1
+    return [] if self <= 1
     limit = Math.sqrt(self).floor
     (2..limit).select { |n| self % n == 0 }.inject([1]) do |result,n|
       result << n << self / n

@@ -78,6 +78,10 @@ describe Integer do
 
   describe "proper divisors" do
 
+    it "returns [] for 0" do
+      0.divisors.should == []
+    end
+
     it "returns [] for 1" do
       1.divisors.should == []
     end
