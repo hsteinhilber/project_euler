@@ -20,9 +20,6 @@ class Problem023
         numbers[i+j] = 0 if i+j <= 28_123
       end
     end
-    File.open('results.tmp','w') do |file|
-      file.puts numbers.to_s
-    end
     numbers.select { |n| n > 0 }.sort
   end
 
