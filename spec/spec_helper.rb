@@ -8,5 +8,7 @@ require 'project_euler'
 Dir["#{File.dirname(__FILE__)}/support/**/*.rb"].each {|f| require f}
 
 RSpec.configure do |config|
-  
+  RSpec::Matchers.define :be_sorted do
+    match { |list| list.sort == list }
+  end
 end
