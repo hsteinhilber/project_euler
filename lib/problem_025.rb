@@ -12,7 +12,7 @@ class Problem025
   end
 
   def run
-    fibonacci.find_index { |n| n.digits.length == 1000 } + 1
+    fibonacci.find_index { |n| n / 10**999 > 0 } + 1
   end
 end
 
