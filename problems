@@ -22,3 +22,4 @@ Problem021 Evaluate the sum of all amicable pairs under 10000.
 Problem022 What is the total of all the name scores in the file of first names?
 Problem023 Find the sum of all the positive integers which cannot be written as the sum of two abundant numbers.
 Problem024 What is the millionth lexicographic permutation of the digits 0, 1, 2, 3, 4, 5, 6, 7, 8 and 9?
+Problem025 What is the first term in the Fibonacci sequence to contain 1000 digits?
