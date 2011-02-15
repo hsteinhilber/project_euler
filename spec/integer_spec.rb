@@ -110,4 +110,55 @@ describe Integer do
       284.divisors.should == [1,2,4,71,142]
     end
   end
+
+  describe "primality" do
+
+    it "is false for negative numbers" do
+      -10.should_not be_prime
+    end
+
+    it "is false for 0" do
+      0.should_not be_prime
+    end
+
+    it "is false for 1" do
+      1.should_not be_prime
+    end
+
+    it "is true for 2" do
+      2.should be_prime
+    end
+
+    it "is true for 3" do
+      3.should be_prime
+    end
+
+    it "is false for even numbers greater than 2" do
+      [4,6,8,10,12,14].each { |n| n.should_not be_prime }
+    end
+
+    it "is true for 5, 7" do
+      [5,7].each { |n| n.should be_prime }
+    end
+
+    it "is false for odd multiples of 3" do
+      [9,15,21,27,33].each { |n| n.should_not be_prime }
+    end
+
+    it "is true for 11, 13, 17, 19" do
+      [11,13,17,19].each { |n| n.should be_prime }
+    end
+
+    it "is false for multiples of 5 and 7" do
+      [30,35,40,42,45,49,50].each { |n| n.should_not be_prime }
+    end
+
+    it "is false for 121" do
+      121.should_not be_prime
+    end
+
+    it "is true for 541" do
+      541.should be_prime
+    end
+  end
 end
