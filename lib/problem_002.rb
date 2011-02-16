@@ -15,7 +15,7 @@ class Problem002
   end
 
   def run
-    sum 4_000_000
+    sum_to 4_000_000
   end
 end
 
