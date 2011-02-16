@@ -24,3 +24,4 @@ Problem023 Find the sum of all the positive integers which cannot be written as 
 Problem024 What is the millionth lexicographic permutation of the digits 0, 1, 2, 3, 4, 5, 6, 7, 8 and 9?
 Problem025 What is the first term in the Fibonacci sequence to contain 1000 digits?
 Problem026 Find the value of d < 1000 for which 1/d contains the longest recurring cycle.
+Problem027 Find a quadratic formula that produces the maximum number of primes for consecutive values of n.
