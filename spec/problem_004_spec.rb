@@ -9,35 +9,24 @@ describe Problem004 do
 
   describe "iteration" do
 
-    before(:each) do
-      @prb.minimum = 5
-      @prb.maximum = 10
-    end
-
     it "should give maximum value first" do
-      @prb.first.should == 100
+      @prb.multiples(5..10).first.should == 100
     end
 
     it "should give the minimum value last" do
       value = nil
-      @prb.each { |n| value = n }
+      @prb.multiples(5..10).each { |n| value = n }
       value.should == 25
     end
 
-    it "should iterate values in descending order" do
-      previous = @prb.first
-      @prb.each do |n| 
-        n.should <= previous
-        previous = n
-      end
+    it "should contain all of the multiples n * m in the given range" do
+      @prb.multiples(5..10).should include(25,30,35,40,45,50,36,42,48,54,60,49,56,63,70,64,72,80,81,90,100)
     end
   end
 
   it "should find first palindrome for 100 to 999" do
-    @prb.should_receive(:minimum=).with(100)
-    @prb.should_receive(:maximum=).with(999)
-    @prb.should_receive(:find)
-    @prb.run
+    @prb.should_receive(:multiples).with(100..999).and_return([100,200,303,400,505,600]);
+    @prb.run.should == 505
   end
 end
 

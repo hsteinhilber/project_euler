@@ -1,15 +1,13 @@
 class Problem004
-  attr_accessor :minimum, :maximum
-  include Enumerable
 
-  def each
-    values = []
-    maximum.downto(minimum).each do |i|
-      i.downto(minimum).each do |j|
-        values << i * j
+  def multiples(range)
+    Enumerator.new do |yielder|
+      range.each do |i|
+        (range.first..i).each do |j|
+          yielder << i * j
+        end
       end
     end
-    values.sort.reverse.each { |n| yield n }
   end
 
   class ::Integer
@@ -20,9 +18,7 @@ class Problem004
   end
 
   def run
-    self.minimum = 100
-    self.maximum = 999
-    find { |x| x.palindrome? }
+    multiples(100..999).select { |x| x.palindrome? }.max
   end
 end
 
