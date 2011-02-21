@@ -1,11 +1,13 @@
+require 'integer'
+
 class Problem008
 
   def partition(number) 
-    number.to_s.split('').map { |v| v.to_i }.each_cons(5).to_a
+    number.digits.each_cons(5).to_a
   end
 
   def product(number)
-    partition(number).map { |a| a.inject(1) { |product,v| product * v } }
+    partition(number).map { |a| a.reduce(1, :*) }
   end
 
   def run
