@@ -9,16 +9,6 @@ describe Problem004 do
 
   describe "iteration" do
 
-    it "should give maximum value first" do
-      @prb.multiples(5..10).first.should == 100
-    end
-
-    it "should give the minimum value last" do
-      value = nil
-      @prb.multiples(5..10).each { |n| value = n }
-      value.should == 25
-    end
-
     it "should contain all of the multiples n * m in the given range" do
       @prb.multiples(5..10).should include(25,30,35,40,45,50,36,42,48,54,60,49,56,63,70,64,72,80,81,90,100)
     end
