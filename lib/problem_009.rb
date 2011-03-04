@@ -2,8 +2,8 @@ class Problem009
 
   def find_triplet
     max = Math.sqrt(1000).floor
-    max.times do |m|
-      max.times do |n|
+    0.upto(max) do |m|
+      0.upto(m-1) do |n|
         a = m**2 - n**2
         b = 2*m*n
         c = m**2 + n**2
