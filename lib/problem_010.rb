@@ -3,12 +3,7 @@ require 'prime_generator'
 class Problem010
 
   def primes_below(n)
-    Enumerator.new do |yielder|
-      PrimeGenerator.new.each do |value|
-        yielder << value if value < n
-        break if value >= n
-      end
-    end
+    PrimeGenerator.new.take_while { |p| p < n }
   end
 
   def run
