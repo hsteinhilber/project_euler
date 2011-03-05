@@ -1,9 +1,9 @@
 class Problem009
 
   def find_triplet
-    max = Math.sqrt(1000).floor
-    0.upto(max) do |m|
-      0.upto(m-1) do |n|
+    max = Math.sqrt(500).floor
+    2.upto(max) do |m|
+      1.upto(m-1) do |n|
         a = m**2 - n**2
         b = 2*m*n
         c = m**2 + n**2
@@ -13,7 +13,7 @@ class Problem009
   end
 
   def run
-    find_triplet.inject { |product,value| product * value }
+    find_triplet.reduce(1, :*)
   end
 end
 
