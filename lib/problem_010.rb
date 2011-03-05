@@ -7,7 +7,7 @@ class Problem010
   end
 
   def run
-    primes_below(2_000_000).inject { |sum,value| sum + value }
+    primes_below(2_000_000).reduce(:+)
   end
 end
 
