@@ -12,7 +12,7 @@ describe Problem010 do
   end
 
   it "calculates a list of primes below a given number" do
-    @prb.primes_below(10).to_a.should == [2, 3, 5, 7]
+    @prb.primes_below(10).should == [2, 3, 5, 7]
   end
 
   it "calculates the sum of primes below 2,000,000" do
