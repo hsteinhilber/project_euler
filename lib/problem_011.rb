@@ -22,41 +22,37 @@ class Problem011
           [ 1,70,54,71,83,51,54,69,16,92,33,48,61,43,52, 1,89,19,67,48]]
 
   def get_lines(grid)
-    result = []
+    Enumerator.new do |yielder|
+      grid.length.times do |i|
+        (grid.length - 3).times do |j|
+          yielder << [grid[i][j + 0],
+                      grid[i][j + 1],
+                      grid[i][j + 2],
+                      grid[i][j + 3]]
+          yielder << [grid[j + 0][i],
+                      grid[j + 1][i],
+                      grid[j + 2][i],
+                      grid[j + 3][i]]
+        end
+      end
 
-    grid.length.times do |i|
-      (grid.length - 3).times do |j|
-        result << [grid[i][j + 0],
-                   grid[i][j + 1],
-                   grid[i][j + 2],
-                   grid[i][j + 3]]
-        result << [grid[j + 0][i],
-                   grid[j + 1][i],
-                   grid[j + 2][i],
-                   grid[j + 3][i]]
+      (grid.length - 3).times do |i|
+        (grid.length - 3).times do |j|
+          yielder << [grid[i + 0][j + 0],
+                      grid[i + 1][j + 1],
+                      grid[i + 2][j + 2],
+                      grid[i + 3][j + 3]]
+          yielder << [grid[i + 0][grid.length - j - 1],
+                      grid[i + 1][grid.length - j - 2],
+                      grid[i + 2][grid.length - j - 3],
+                      grid[i + 3][grid.length - j - 4]]
+        end
       end
     end
-
-    (grid.length - 3).times do |i|
-      (grid.length - 3).times do |j|
-        result << [grid[i + 0][j + 0],
-                   grid[i + 1][j + 1],
-                   grid[i + 2][j + 2],
-                   grid[i + 3][j + 3]]
-        result << [grid[i + 0][grid.length - j - 1],
-                   grid[i + 1][grid.length - j - 2],
-                   grid[i + 2][grid.length - j - 3],
-                   grid[i + 3][grid.length - j - 4]]
-      end
-    end
-
-    return result
   end
 
   def products(grid)
-    get_lines(grid).map do |ary|
-      ary.inject(1) { |product,v| product * v }
-    end
+    get_lines(grid).map { |ary| ary.reduce(1, :*) }
   end
 
   def run
