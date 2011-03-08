@@ -9,11 +9,10 @@ class Problem032
 
   def products
     Enumerator.new do |yielder|
-      min, max = 1234,9876
-      1.upto(99) do |m|
-        min, max = 123, 987 if m > 9
-        min.upto(max) do |n|
-          yielder << [m, n, m*n] if is_pandigital?(m,n,m*n)
+      (1234..9876).each do |p|
+        p.divisors.take_while { |d| d < 99 }.each do |m|
+          n = p / m
+          yielder << [m, n, p] if is_pandigital?(m,n,p)
         end
       end
     end
