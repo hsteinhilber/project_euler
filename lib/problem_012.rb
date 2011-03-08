@@ -15,14 +15,10 @@ class Problem012
 
     def factors
       return 1 if self == 1
-      result = 2
-      root = Math.sqrt(self)
-      limit = root.floor
-      result -= 1 if limit == root # number is a perfect square
-      (2..limit).each do |factor|
-        result += 2 if self % factor == 0
+      limit = Math.sqrt(self)
+      (2..limit).inject(limit == limit.floor ? 1 : 2) do |result,factor|
+        result += (self % factor == 0 ? 2 : 0)
       end
-      return result
     end
   end
 
