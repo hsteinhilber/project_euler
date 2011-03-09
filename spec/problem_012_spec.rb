@@ -22,38 +22,38 @@ describe Problem012 do
     end
   end
 
-  describe "factoring" do
+  describe "counting divisors" do
 
-    it "calculates 1 factor for 1" do
-      1.factors.should == 1
+    it "calculates 1 divisor for 1" do
+      1.divisor_count.should == 1
     end
 
-    it "calculates 2 factors for 3" do
-      3.factors.should == 2
+    it "calculates 2 divisor for 3" do
+      3.divisor_count.should == 2
     end
 
-    it "calculates 4 factors for 6" do
-      6.factors.should == 4
+    it "calculates 4 divisors for 6" do
+      6.divisor_count.should == 4
     end
 
-    it "calculates 4 factors for 21" do
-      21.factors.should == 4
+    it "calculates 4 divisors for 21" do
+      21.divisor_count.should == 4
     end
 
-    it "calculates 6 factors for 28" do
-      28.factors.should == 6
+    it "calculates 6 divisors for 28" do
+      28.divisor_count.should == 6
     end
 
-    it "calculates 12 factors for 5050" do
-      5050.factors.should == 12
+    it "calculates 12 divisors for 5050" do
+      5050.divisor_count.should == 12
     end
   end
 
   it "finds the first value whose factor count is greater than 500" do
     good_value = double(Integer)
-    good_value.should_receive(:factors).and_return(500)
+    good_value.should_receive(:divisor_count).and_return(501)
     bad_value = double(Integer)
-    bad_value.should_receive(:factors).and_return(499)
+    bad_value.should_receive(:divisor_count).and_return(500)
 
     @prb.should_receive(:each).and_yield(3).
                                and_yield(bad_value).
