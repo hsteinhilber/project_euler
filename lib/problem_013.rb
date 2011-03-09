@@ -102,7 +102,7 @@ class Problem013
              53503534226472524250874054075591789781264330331690]
 
   def partial_sum(ary, digits)
-    ary.inject { |sum,n| sum + n}.to_s.chars.take(digits).join.to_i
+    ary.reduce(:+).to_s.slice(0..digits-1).to_i
   end
 
   def run
