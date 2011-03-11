@@ -2,12 +2,12 @@ require 'integer'
 
 class Problem015
 
-  def paths_for_grid(n)
-    (2*n).fact / (n.fact ** 2) 
+  def paths_for_grid(m,n)
+    (m+n).fact / (m.fact * n.fact) 
   end
 
   def run
-    paths_for_grid(20)
+    paths_for_grid(20,20)
   end
 end
 
