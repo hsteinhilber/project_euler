@@ -2,8 +2,12 @@ require 'integer'
 
 class Problem015
 
+  def paths_for_grid(n)
+    (n+n).fact / (n.fact * n.fact) 
+  end
+
   def run
-    40.comb(20)
+    paths_for_grid(20)
   end
 end
 
