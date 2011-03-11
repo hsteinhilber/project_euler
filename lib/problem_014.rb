@@ -1,28 +1,23 @@
 class Problem014
-  @@known_lengths = {}
+
+  def initialize
+    @known_lengths = { 1 => 1 }
+  end
 
   def sequence(start)
     Enumerator.new do |yielder|
       n = start
-      while n > 1
-        yielder << n
-        if n.even?
-          n /= 2
-        else
-          n = (3 * n + 1)
-        end
-      end
+      (yielder << n) && (n = n.even? ? n / 2 : 3*n + 1) while n > 1
       yielder << 1
     end
   end
 
   def chain_length(start)
-    return @@known_lengths[start] if @@known_lengths.include? start
+    return @known_lengths[start] if @known_lengths.include? start
 
     count = 0
     sequence(start).each do |term|
-      return @@known_lengths[start] = count + 1 if term == 1
-      return @@known_lengths[start] = @@known_lengths[term] + count if @@known_lengths.include? term
+      return @known_lengths[start] = @known_lengths[term] + count if @known_lengths.include? term
       count += 1
     end
   end
