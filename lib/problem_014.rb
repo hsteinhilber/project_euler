@@ -25,12 +25,12 @@ class Problem014
   def chain_lengths
     Enumerator.new do |yielder|
       start = 2
-      yielder << [start, chain_length(start)] && start += 1 while true
+      yielder << [start, chain_length(start)] && start += 1 while start < 1_000_000
     end
   end
 
   def run
-    chain_lengths.take_while { |start,length| start < 1_000_000 }.max_by { |start,length| length }[0]
+    chain_lengths.max_by { |start,length| length }[0]
   end
 end
 

@@ -49,7 +49,6 @@ describe Problem014 do
        yielder << [4,3]
        yielder << [5,6]
        yielder << [999_999,1]
-       yielder << [1_000_000,99]
       end
     )
     @prb.run.should == 3
