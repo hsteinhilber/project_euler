@@ -3,7 +3,7 @@ require 'integer'
 class Problem015
 
   def paths_for_grid(n)
-    (n+n).fact / (n.fact * n.fact) 
+    (2*n).fact / (n.fact ** 2) 
   end
 
   def run
