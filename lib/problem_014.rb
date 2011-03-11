@@ -30,7 +30,7 @@ class Problem014
   end
 
   def run
-    chain_lengths.take_while { |p| p[0] < 1_000_000 }.max_by { |p| p[1] }[0]
+    chain_lengths.take_while { |start,length| start < 1_000_000 }.max_by { |start,length| length }[0]
   end
 end
 
