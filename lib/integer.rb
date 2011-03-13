@@ -1,8 +1,7 @@
 class ::Integer
 
   def fact
-    return 1 if self <= 1
-    self * (self - 1).fact
+    (1..self).reduce(1, :*)
   end
 
   def perm(k)
