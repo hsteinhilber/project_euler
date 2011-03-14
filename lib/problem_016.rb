@@ -3,7 +3,7 @@ require 'integer'
 class Problem016
 
  def run
-    (2**1000).digits.inject { |sum,v| sum + v }
+    (2**1000).digits.reduce(:+)
   end
 end
 
