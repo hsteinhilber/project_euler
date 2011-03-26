@@ -7,74 +7,58 @@ describe Problem017 do
     @prb = Problem017.new
   end
 
-  describe "converting numbers to words" do
-    [
-      [1, 'one'],
-      [2, 'two'],
-      [3, 'three'],
-      [4, 'four'],
-      [5, 'five'],
-      [6, 'six'],
-      [7, 'seven'],
-      [8, 'eight'],
-      [9, 'nine'],
-      [10, 'ten'],
-      [11, 'eleven'],
-      [12, 'twelve'],
-      [13, 'thirteen'],
-      [14, 'fourteen'],
-      [15, 'fifteen'],
-      [16, 'sixteen'],
-      [17, 'seventeen'],
-      [18, 'eighteen'],
-      [19, 'nineteen'],
-      [20, 'twenty'],
-      [21, 'twenty-one'],
-      [30, 'thirty'],
-      [35, 'thirty-five'],
-      [40, 'forty'],
-      [50, 'fifty'],
-      [60, 'sixty'],
-      [70, 'seventy'],
-      [80, 'eighty'],
-      [90, 'ninety'],
-      [100, 'one hundred'],
-      [300, 'three hundred'],
-      [103, 'one hundred and three'],
-      [1000, 'one thousand'],
-      [342, 'three hundred and forty-two'],
-      [115, 'one hundred and fifteen']
-    ].each do |n, word|
-      it "converts #{n} to '#{word}'" do
-        n.to_words.should == word
-      end
+  [
+    [1, 'one'.count("a-z")],
+    [2, 'two'.count("a-z")],
+    [3, 'three'.count("a-z")], 
+    [4, 'four'.count("a-z")],
+    [5, 'five'.count("a-z")],
+    [6, 'six'.count("a-z")],
+    [7, 'seven'.count("a-z")],
+    [8, 'eight'.count("a-z")],
+    [9, 'nine'.count("a-z")],
+    [10, 'ten'.count("a-z")],
+    [11, 'eleven'.count("a-z")],
+    [12, 'twelve'.count("a-z")],
+    [13, 'thirteen'.count("a-z")],
+    [14, 'fourteen'.count("a-z")],
+    [15, 'fifteen'.count("a-z")],
+    [16, 'sixteen'.count("a-z")],
+    [17, 'seventeen'.count("a-z")],
+    [18, 'eighteen'.count("a-z")],
+    [19, 'nineteen'.count("a-z")],
+    [20, 'twenty'.count("a-z")],
+    [21, 'twenty-one'.count("a-z")],
+    [30, 'thirty'.count("a-z")],
+    [35, 'thirty-five'.count("a-z")],
+    [40, 'forty'.count("a-z")],
+    [50, 'fifty'.count("a-z")],
+    [60, 'sixty'.count("a-z")],
+    [70, 'seventy'.count("a-z")],
+    [80, 'eighty'.count("a-z")],
+    [90, 'ninety'.count("a-z")],
+    [100, 'one hundred'.count("a-z")],
+    [300, 'three hundred'.count("a-z")],
+    [103, 'one hundred and three'.count("a-z")],
+    [1000, 'one thousand'.count("a-z")],
+    [342, 'three hundred and forty-two'.count("a-z")],
+    [115, 'one hundred and fifteen'.count("a-z")]
+  ].each do |n, c|
+    it "counts #{c} letters in the number #{n}" do
+      @prb.letters_for(n).should == c
     end
   end
 
-  describe "computing total letters" do
-
-    it "counts the letters in 'one' as 3" do
-      @prb.count_letters('one').should == 3
-    end
-
-    it "counts the letters in 'twenty-one' as 9" do
-      @prb.count_letters('twenty-one').should == 9
-    end
-
-    it "counts the letters in 'one hundred and twenty-one' as 22" do
-      @prb.count_letters('one hundred and twenty-one').should == 22
-    end
-
-    it "computes 3 letters for numbers up to 1 ('one')" do
-      @prb.sum_to(1).should == 3
-    end
-    
-    it "computes 11 letters for numbers up to 3 ('one'+'two'+'three')" do
-      @prb.sum_to(3).should == 11
-    end
-
-    it "computes 19 letters for numbers up to 5 ('one'+'two'+'three'+'four'+'five')" do
-      @prb.sum_to(5).should == 19
+  [
+    [1, 3],
+    [2, 6],
+    [3, 11],
+    [4, 15],
+    [5, 19],
+    [6, 22]
+  ].each do |n, c|
+    it "computes #{c} letters for all the numbers up to #{n}" do
+      @prb.sum_to(n).should == c
     end
   end
 
