@@ -17,6 +17,7 @@ class ::Integer
   end
 
   def prime_factors 
+    return {} if self == 1
     prime = 2
     result = {}
     value = self

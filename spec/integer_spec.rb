@@ -58,21 +58,28 @@ describe Integer do
   end
 
   describe "prime factors" do
-  
-    it "generates { 2 => 1, 3 => 1 } for 6" do
-      6.prime_factors.should == { 2 => 1, 3 => 1 }
-    end
 
-    it "generates { 2 => 2 } for 4" do
-      4.prime_factors.should == { 2 => 2 }
-    end
-
-    it "generates { 5 => 2, 11 => 1 }  for 275" do
-      275.prime_factors.should == { 5 => 2, 11 => 1 }
-    end
-
-    it "generates { 5 => 1, 7 => 1, 13 => 1, 29 => 1 } for 13195" do
-      13_195.prime_factors.should == { 5 => 1, 7 => 1, 13 => 1, 29 => 1 }
+    [
+      ["1", { }],
+      ["2", { 2 => 1 }],
+      ["3", { 3 => 1 }],
+      ["4", { 2 => 2 }],
+      ["5", { 5 => 1 }],
+      ["6", { 2 => 1, 3 => 1 }],
+      ["7", { 7 => 1 }],
+      ["8", { 2 => 3 }],
+      ["9", { 3 => 2 }],
+      ["10", { 2 => 1, 5 => 1 }],
+      ["2*3*5*7*11*11", { 2 => 1, 3 => 1, 5 => 1, 7 => 1, 11 => 2 }],
+      ["8191*131071", { 8191 => 1, 131071 => 1 }],
+      ["2**19-1", { 2**19-1 => 1 }],
+      ["2**100", { 2 => 100 }],
+      ["2**31-1", { 2**31-1 => 1 }]
+    ].each do |expression, factors|
+      it "generates #{factors} for #{expression}" do
+        n = eval expression
+        n.prime_factors.should == factors
+      end
     end
   end
 
