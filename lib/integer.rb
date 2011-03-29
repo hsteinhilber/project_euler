@@ -21,14 +21,10 @@ class ::Integer
     return {} if value == 1
     factors, prime = [], 2
     while value >= prime ** 2
-      if value % prime == 0
-        factors << prime
-        value /= prime
-      else
-        prime += 1
-      end
+      factors << prime and value /= prime while value % prime == 0
+      prime += 1
     end
-    factors << value
+    factors << value if value > 1
     factors.reduce({}) { |result,factor| result[factor] ||= 0; result[factor] += 1; result }
   end
 
