@@ -18,8 +18,7 @@ class ::Integer
 
   def prime_factors 
     return {} if self == 1
-    prime = 2
-    result = {}
+    result, prime = {}, 2
     value = self
     while value >= prime ** 2
       if value % prime == 0
