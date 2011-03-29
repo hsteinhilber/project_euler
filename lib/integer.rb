@@ -22,7 +22,7 @@ class ::Integer
     factors, prime = [], 1
     while value > 1 and prime += 1
       factors << prime and value /= prime while value % prime == 0
-      prime = value - 1 if prime > Math.sqrt(value)
+      prime = value - 1 if (prime**2) > value
     end
     factors.reduce({}) { |result,factor| result[factor] ||= 0; result[factor] += 1; result }
   end
