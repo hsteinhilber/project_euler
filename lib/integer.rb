@@ -17,9 +17,9 @@ class ::Integer
   end
 
   def prime_factors 
-    return {} if self == 1
-    result, prime = {}, 2
     value = self
+    return {} if value == 1
+    result, prime = {}, 2
     while value >= prime ** 2
       if value % prime == 0
         result.merge!(prime => 0) if not result.has_key?(prime)
