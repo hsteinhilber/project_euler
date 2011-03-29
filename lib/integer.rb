@@ -19,12 +19,11 @@ class ::Integer
   def prime_factors 
     value = self
     return {} if value == 1
-    factors, prime = [], 2
-    while value >= prime ** 2
+    factors, prime = [], 1
+    while value > 1 and prime += 1
       factors << prime and value /= prime while value % prime == 0
-      prime += 1
+      prime = value - 1 if prime > Math.sqrt(value)
     end
-    factors << value if value > 1
     factors.reduce({}) { |result,factor| result[factor] ||= 0; result[factor] += 1; result }
   end
 
