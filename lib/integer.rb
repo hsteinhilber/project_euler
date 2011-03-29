@@ -18,7 +18,6 @@ class ::Integer
 
   def prime_factors 
     value = self
-    return {} if value == 1
     factors, prime = [], 1
     while value > 1 and prime += 1
       factors << prime and value /= prime while value % prime == 0
