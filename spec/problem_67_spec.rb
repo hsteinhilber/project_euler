@@ -10,8 +10,7 @@ describe Problem067 do
   it "reads the contents of the specified file" do
     fake_file = double(File)
     File.should_receive(:open).with('example.txt').and_yield(fake_file)
-    fake_file.should_receive(:readline).and_return('1', '2 3', '4 5 6', '7 8 9 10')
-    fake_file.should_receive(:eof?).and_return(false,false,false,false,true)
+    fake_file.should_receive(:readlines).and_return(['1', '2 3', '4 5 6', '7 8 9 10'])
     @prb.load_file('example.txt').should == [[1],[2,3],[4,5,6],[7,8,9,10]]
   end
   

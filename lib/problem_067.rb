@@ -5,9 +5,7 @@ class Problem067
 
   def load_file(file_name)
     File.open(file_name) do |file|
-      Enumerator.new do |yielder|
-        yielder << file.readline while not file.eof?
-      end.map { |s| s.split(' ').map { |v| v.to_i } }
+      file.readlines.map { |line| line.split(' ').map { |num| num.to_i } }
     end
   end
 
