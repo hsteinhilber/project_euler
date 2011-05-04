@@ -124,75 +124,33 @@ describe Integer do
       -10.should_not be_prime
     end
 
-    it "is false for 0" do
-      0.should_not be_prime
+    [0,1,4,6,8,9,10,12,14,15,16,18,20,21,
+     22,24,25,26,27,28,30,35,40,42,45,49,50,
+     121].each do |n|
+      it "is false for #{n}" do
+        n.should_not be_prime
+      end
     end
 
-    it "is false for 1" do
-      1.should_not be_prime
-    end
-
-    it "is true for 2" do
-      2.should be_prime
-    end
-
-    it "is true for 3" do
-      3.should be_prime
-    end
-
-    it "is false for even numbers greater than 2" do
-      [4,6,8,10,12,14].each { |n| n.should_not be_prime }
-    end
-
-    it "is true for 5, 7" do
-      [5,7].each { |n| n.should be_prime }
-    end
-
-    it "is false for odd multiples of 3" do
-      [9,15,21,27,33].each { |n| n.should_not be_prime }
-    end
-
-    it "is true for 11, 13, 17, 19" do
-      [11,13,17,19].each { |n| n.should be_prime }
-    end
-
-    it "is false for multiples of 5 and 7" do
-      [30,35,40,42,45,49,50].each { |n| n.should_not be_prime }
-    end
-
-    it "is false for 121" do
-      121.should_not be_prime
-    end
-
-    it "is true for 541" do
-      541.should be_prime
+    [2,3,5,7,11,13,17,19,23,29,31,541].each do |n|
+      it "is true for #{n}" do
+        n.should be_prime
+      end
     end
   end
 
   describe "rotations" do
 
-    it "returns [1] for 1" do
-      1.rotations.should =~ [1]
-    end
-
-    it "returns [13,31] for 13" do
-      13.rotations.should =~ [13,31]
-    end
-
-    it "returns [13,31] for 31" do
-      31.rotations.should =~ [13,31]
-    end
-
-    it "returns [114,141,411] for 114" do
-      114.rotations.should =~ [114,141,411]
-    end
-
-    it "returns [2,20,200] for 200" do
-      200.rotations.should =~ [2,20,200]
-    end
-
-    it "returns [11] for 11" do
-      11.rotations.should =~ [11]
+    [ [1,   [1]],
+      [13,  [13, 31]],
+      [31,  [13, 31]],
+      [114, [114,141,411]],
+      [200, [2,20,200]],
+      [11,  [11]]
+    ].each do |n, expected|
+      it "returns #{expected} for #{n}" do
+        n.rotations.should =~ expected
+      end
     end
   end
 
