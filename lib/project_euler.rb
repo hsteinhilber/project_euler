@@ -27,8 +27,11 @@ class ProjectEuler
     if command =~ /\d/
       problem = @problems.keys[index(command.to_i - 1)]
       if not problem.nil?
+        expression = "#{problem}"
+        expression += ".new" if eval("#{problem}.class.inspect") == "Class"
+        expression += ".run"
         start_time = Time.now
-        puts 'Result: ' + eval("#{problem}.new.run").inspect
+        puts 'Result: ' + eval(expression).inspect
         puts "Run time: #{Time.now-start_time}s\n\n"
         return
       end

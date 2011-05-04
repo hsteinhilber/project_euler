@@ -8,25 +8,31 @@ describe ProjectEuler do
   end
 
   class ExampleProblem
-    @@run_complete = false
+    class << self
+      attr_accessor :run_complete
+    end
 
     def run
-      @@run_complete = true
+      ExampleProblem.run_complete = true
       42
     end
+  end
 
-    def self.run_complete
-      @@run_complete
-    end
-    def self.run_complete=(value)
-      @@run_complete = value
+  module ExampleModule
+    class << self
+      attr_accessor :run_complete
+
+      def run
+        self.run_complete = true
+        99
+      end
     end
   end
 
   before(:each) do
     @problems = {
       'ExampleProblem' => 'first problem description',
-      'Problem002' => 'second problem description',
+      'ExampleModule' => 'second problem description',
       'Problem003' => 'third problem description',
       'Problem004' => 'fourth problem description',
       'Problem005' => 'fifth problem description',
@@ -163,7 +169,7 @@ describe ProjectEuler do
     end
   end
 
-  describe "running a problem" do
+  describe "running a problem class" do
     
     it "runs the requested problem when the user enters a number" do
       output = StringIO.new("","w")
@@ -185,6 +191,31 @@ describe ProjectEuler do
       pe.get_command
       
       output.string.should =~ /result: 42/i
+    end
+  end
+
+  describe "running a problem module" do
+
+    it "runs the requested problem when user enters a number" do
+      output = StringIO.new("", "w")
+      pe = ProjectEuler.new(@problems)
+      pe.metaclass.send(:define_method, :puts) { |value| output.puts value }
+      pe.metaclass.send(:define_method, :gets) { "2\n" }
+
+      pe.get_command
+
+      ExampleModule.run_complete.should == true
+    end
+
+    it "displays the output of the specified problem" do
+      output = StringIO.new("","w")
+      pe = ProjectEuler.new(@problems)
+      pe.metaclass.send(:define_method, :puts) { |value| output.puts value }
+      pe.metaclass.send(:define_method, :gets) { "2\n" }
+
+      pe.get_command
+      
+      output.string.should =~ /result: 99/i
     end
   end
 
