@@ -3,11 +3,14 @@ require 'integer'
 
 module Problem035
   class << self 
+    def circular?(n)
+      return true if n < 10
+      return false if n.digits.any? { |d| d.even? || d == 5 }
+      n.rotations.all? { |p| p.prime? }
+    end
+
     def circular_primes_under(max)
-      PrimeGenerator.new.take_while { |n| n < max }.select do |n| 
-        n < 10 || (n.digits.all? { |d| [1,3,7,9].include?(d) } &&
-          n.rotations.all? { |p| p.prime? })
-      end
+      PrimeGenerator.new.take_while { |n| n < max }.select { |n| circular?(n) }
     end
 
     def run
