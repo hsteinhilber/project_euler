@@ -4,11 +4,9 @@ require 'integer'
 module Problem035
   class << self 
     def circular_primes_under(max)
-      Enumerator.new do |yielder|
-        PrimeGenerator.new.take_while { |n| n < max }.each do |n|
-          yielder << n if n.rotations.all? { |p| p.prime? }
-        end 
-      end.to_a
+      PrimeGenerator.new.take_while { |n| n < max }.select do |n| 
+        n.rotations.all? { |p| p.prime? } 
+      end
     end
 
     def run
