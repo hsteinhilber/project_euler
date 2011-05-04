@@ -41,7 +41,7 @@ class ::Integer
     return true if self < 9
     return false if self % 3 == 0
     factor = 3
-    factor += 2 and return false if self % factor == 0 while self >= factor ** 2
+    return false if self % factor == 0 while factor += 2 and self >= factor ** 2
     true
   end
 end
