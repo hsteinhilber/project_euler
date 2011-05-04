@@ -1,0 +1,2 @@
+clear
+ruby lib/project_euler.rb

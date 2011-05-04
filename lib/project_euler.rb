@@ -55,8 +55,6 @@ class ProjectEuler
 end
 
 if $0 == __FILE__
-  `cls`
-  
   $: << './lib'
   problems = {}
   File.open('problems','r') do |file|
