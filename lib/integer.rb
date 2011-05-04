@@ -44,6 +44,15 @@ class ::Integer
     return false if self % factor == 0 while factor += 2 and self >= factor ** 2
     true
   end
+
+  def rotations
+    Enumerator.new do |yielder|
+      digits = self.digits
+      digits.count.times do
+        yielder << digits.rotate!.join('').to_i
+      end
+    end.to_a.uniq
+  end
 end
 
 

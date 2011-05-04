@@ -168,4 +168,32 @@ describe Integer do
       541.should be_prime
     end
   end
+
+  describe "rotations" do
+
+    it "returns [1] for 1" do
+      1.rotations.should =~ [1]
+    end
+
+    it "returns [13,31] for 13" do
+      13.rotations.should =~ [13,31]
+    end
+
+    it "returns [13,31] for 31" do
+      31.rotations.should =~ [13,31]
+    end
+
+    it "returns [114,141,411] for 114" do
+      114.rotations.should =~ [114,141,411]
+    end
+
+    it "returns [2,20,200] for 200" do
+      200.rotations.should =~ [2,20,200]
+    end
+
+    it "returns [11] for 11" do
+      11.rotations.should =~ [11]
+    end
+  end
+
 end
