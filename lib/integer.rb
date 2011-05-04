@@ -40,9 +40,8 @@ class ::Integer
     return false if self % 2 == 0
     return true if self < 9
     return false if self % 3 == 0
-    limit = Math.sqrt(self).floor
-    return false if limit**2 == self
-    5.step(limit,2).each { |n| return false if self % n == 0 }
+    factor = 3
+    factor += 2 and return false if self % factor == 0 while self >= factor ** 2
     true
   end
 end
