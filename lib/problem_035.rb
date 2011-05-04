@@ -5,7 +5,8 @@ module Problem035
   class << self 
     def circular_primes_under(max)
       PrimeGenerator.new.take_while { |n| n < max }.select do |n| 
-        n.rotations.all? { |p| p.prime? } 
+        n < 10 || (n.digits.all? { |d| [1,3,7,9].include?(d) } &&
+          n.rotations.all? { |p| p.prime? })
       end
     end
 
