@@ -33,4 +33,5 @@ Problem032 Find the sum of all numbers that can be written as pandigital product
 Problem033 Discover all the fractions with an unorthodox cancelling method.
 Problem034 Find the sum of all numbers which are equal to the sum of the factorial of their digits.
 Problem035 How many circular primes are there below one million? 
+Problem036 Find the sum of all numbers less than one million, which are palindromic in base 10 and base 2.
 Problem067 Using an efficient algorithm find the maximal sum in the triangle?
