@@ -16,8 +16,8 @@ class ::Integer
     self.to_s.split('').map { |s| s.to_i }
   end
 
-  def palindrome?
-    (text = self.to_s) == text.reverse
+  def palindrome?(base = 10)
+    (text = self.to_s(base)) == text.reverse
   end
 
   def prime_factors 

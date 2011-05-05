@@ -91,6 +91,17 @@ describe Integer do
         995.should_not be_palindrome
       end
     end
+
+    describe "using base 2 numbers" do
+
+      it "is a palindrome if bits are reversible" do
+        48093.should be_palindrome(2)
+      end
+
+      it "is not a palindrome if bits are not reversible" do
+        5995.should_not be_palindrome(2)
+      end
+    end
   end
 
   describe "prime factors" do
