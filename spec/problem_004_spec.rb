@@ -19,39 +19,3 @@ describe Problem004 do
     @prb.run.should == 505
   end
 end
-
-describe Integer do
-
-  describe "single digit" do
-
-    it "is a palindrome" do
-      5.should be_palindrome
-    end
-  end
-
-  describe "double digit" do
-
-    it "is a palindrome if both digits are the same" do
-      88.should be_palindrome
-    end
-
-    it "is not a palindrome if digits differ" do
-      89.should_not be_palindrome
-    end
-  end
-
-  describe "triple digit" do
-
-    it "is a palindrome if all digits are the same" do
-      777.should be_palindrome
-    end
-
-    it "is a palindrome if only the middle digit differs" do
-      787.should be_palindrome
-    end
-
-    it "is not a palindrome if first and last digit differ" do
-      995.should_not be_palindrome
-    end
-  end
-end

@@ -16,6 +16,10 @@ class ::Integer
     self.to_s.split('').map { |s| s.to_i }
   end
 
+  def palindrome?
+    (text = self.to_s) == text.reverse
+  end
+
   def prime_factors 
     value = self
     factors, prime = [], 1

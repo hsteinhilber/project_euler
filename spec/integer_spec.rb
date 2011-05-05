@@ -57,6 +57,42 @@ describe Integer do
     end
   end
 
+  describe "palindrome?" do
+
+    describe "using a single digit decimal number" do
+
+      it "is a palindrome" do
+        5.should be_palindrome
+      end
+    end
+
+    describe "using a double digit decimal number" do
+
+      it "is a palindrome if both digits are the same" do
+        88.should be_palindrome
+      end
+
+      it "is not a palindrome if digits differ" do
+        89.should_not be_palindrome
+      end
+    end
+
+    describe "using a triple digit decimal number" do
+
+      it "is a palindrome if all digits are the same" do
+        777.should be_palindrome
+      end
+
+      it "is a palindrome if only the middle digit differs" do
+        787.should be_palindrome
+      end
+
+      it "is not a palindrome if first and last digit differ" do
+        995.should_not be_palindrome
+      end
+    end
+  end
+
   describe "prime factors" do
 
     [
