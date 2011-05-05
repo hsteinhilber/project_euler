@@ -17,7 +17,9 @@ class ::Integer
   end
 
   def palindrome?(base = 10)
-    (text = self.to_s(base)) == text.reverse
+    reversed, current = 0, self
+    reversed, current = base*reversed + current%base, current / base while current > 0
+    self == reversed
   end
 
   def prime_factors 
