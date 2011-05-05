@@ -1,3 +1,5 @@
+require 'integer'
+
 class Problem004
 
   def multiples(range)
@@ -7,13 +9,6 @@ class Problem004
           yielder << i * j
         end
       end
-    end
-  end
-
-  class ::Integer
-    def palindrome?
-      text = self.to_s
-      text == text.reverse
     end
   end
 
