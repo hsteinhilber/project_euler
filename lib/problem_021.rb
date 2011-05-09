@@ -3,7 +3,7 @@ require 'integer'
 class Problem021
 
   def dsum(value)
-    value.divisors.inject(0) { |sum,n| sum + n }
+    value.divisors.reduce(0, :+)
   end
 
   def amicable_pair(value)
