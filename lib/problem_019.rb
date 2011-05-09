@@ -1,8 +1,15 @@
 class Problem019
 
+  class ::Range
+    def product(other)
+      self.to_a.product(other.to_a)
+    end
+    alias :* :product
+  end
+
   def count_sundays(year_range)
     year_range = year_range..year_range if year_range.kind_of?(Integer)
-    (1..12).to_a.product(year_range.to_a).count { |month, year| Time.new(year, month, 1).sunday? }
+    ((1..12) * year_range).count { |month, year| Time.new(year, month, 1).sunday? }
   end
 
   def run
