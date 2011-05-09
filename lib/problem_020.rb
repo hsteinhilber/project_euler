@@ -3,7 +3,7 @@ require 'integer'
 class Problem020
 
   def run
-    100.fact.digits.inject(0) { |sum,n| sum + n }
+    100.fact.digits.reduce(0, :+)
   end
 end
 

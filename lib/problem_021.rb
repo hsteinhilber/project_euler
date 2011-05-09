@@ -12,11 +12,11 @@ class Problem021
   end
 
   def find_pairs(range)
-    range.select { |n| not amicable_pair(n).nil? }
+    range.select { |n| amicable_pair(n) }
   end
 
   def run
-    find_pairs(1..10_000).inject(0) { |sum,n| sum + n }
+    find_pairs(1..10_000).reduce(0, :+)
   end
 end
 
